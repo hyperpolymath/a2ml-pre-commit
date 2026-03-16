@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <j.d.a.jewell@open.ac.uk>
+#
+# .pre-commit-hooks.yaml — Hook definitions for the pre-commit framework
+# See: https://pre-commit.com/#creating-new-hooks
+
+- id: validate-a2ml
+  name: Validate A2ML manifests
+  description: >-
+    Validate .a2ml manifest files for required fields (agent-id/pedigree name,
+    version), SPDX headers, and attestation block structure.
+  entry: hooks/validate-a2ml.sh
+  language: script
+  files: '\.a2ml$'
+  types: [file]

@@ -1,0 +1,57 @@
+= a2ml-pre-commit
+:toc: preamble
+:icons: font
+
+== Overview
+
+**Pre-commit hook for validating A2ML manifest files.**
+
+A2ML (Agnostic Agent Markup Language) is a manifest format for machine-readable
+metadata, AI agent instructions, and project state. This hook validates `.a2ml`
+files on commit for structural correctness and required fields.
+
+== Checks Performed
+
+1. **SPDX header** — `SPDX-License-Identifier` in the first 10 lines
+2. **Identity fields** — Requires `agent-id`, `name`, or `project` (relaxed for AI-MANIFEST files)
+3. **Version field** — `version` or `schema_version` presence
+4. **Attestation blocks** — Validates `proof`/`signature`/`hash` fields if `[attestation]` section exists
+
+== Installation
+
+Add to your `.pre-commit-config.yaml`:
+
+[source,yaml]
+----
+repos:
+  - repo: https://github.com/hyperpolymath/a2ml-pre-commit
+    rev: v1.0.0
+    hooks:
+      - id: validate-a2ml
+----
+
+Then install:
+
+[source,bash]
+----
+pre-commit install
+----
+
+== Manual Usage
+
+You can also run the hook script directly:
+
+[source,bash]
+----
+./hooks/validate-a2ml.sh path/to/file.a2ml [more-files.a2ml ...]
+----
+
+== Author
+
+Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
+
+== License
+
+SPDX-License-Identifier: PMPL-1.0-or-later
+
+See link:LICENSE[LICENSE] for details.
