@@ -1,5 +1,6 @@
 # Clone the repository
-git clone https://github.com/hyperpolymath/a2ml-pre-commit.git
+git clone https://github.com/hyperpolymath/standards.git
+# Note: A2ML is located in standards/a2ml-pre-commit.git
 cd a2ml-pre-commit
 
 # Using Nix (recommended for reproducibility)
